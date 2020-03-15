@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        problem1()
+        //problem1()
+        problem2()
     }
     
     private func problem1() {
@@ -25,6 +26,29 @@ class ViewController: UIViewController {
             }
         }
         print(sum)
+    }
+    
+    private func problem2() {
+        // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+        // 1, 2, 3, 5, 8, 13, 21, 34, 55, 89
+        var keepGoing = true
+        var first = 0
+        var second = 1
+        var sum = 0
+        var sumOfEvenValuedTerms = 0
+        while keepGoing {
+            sum = first + second
+            //print(sum)
+            first = second
+            second = sum
+            if sum > 4_000_000 {
+                keepGoing = false
+            }
+            if sum % 2 == 0 {
+                sumOfEvenValuedTerms += sum
+            }
+        }
+        print(sumOfEvenValuedTerms)
     }
 }
 
